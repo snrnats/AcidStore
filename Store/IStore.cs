@@ -4,11 +4,11 @@ namespace Store
 {
     public interface IStore<T> where T : IIdentifiable
     {
-        void Create(T obj);
-        IReadOnlyCollection<T> GetAll();
-        T Get(int id);
-        void Update(T obj);
-        void Delete(int id);
+        void Create(T obj, Transaction transaction = null);
+        IReadOnlyCollection<T> GetAll(Transaction transaction = null);
+        T Get(int id, Transaction transaction = null);
+        void Update(T obj, Transaction transaction = null);
+        void Delete(int id, Transaction transaction = null);
 
         Transaction BeginTransaction();
         public void Commit(Transaction transaction);
