@@ -22,7 +22,10 @@ namespace Tests
 
             store.Commit(transaction);
 
+            var actualAfterCommit = store.Get(id);
+
             Assert.AreEqual(oldValue, actual.Balance);
+            Assert.AreEqual(newValue, actualAfterCommit.Balance);
         }
 
         [TestMethod]
